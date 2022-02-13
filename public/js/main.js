@@ -2,6 +2,7 @@ const chatForm = document.getElementById('chat-form');
 const chatMessages = document.querySelector('#chat-messages');
 const roomName = document.getElementById('room-name');
 const userList = document.getElementById('users');
+const leaveButton = document.getElementById('leave-btn');
 
 // Get username and room from URL
 const { username, room } = Qs.parse(location.search, {
@@ -14,9 +15,18 @@ const socket = io();
 socket.emit('joinRoom', {username, room});
 
 //Get room information
-socket.on('roomUsers', ({room, users})=>{
+socket.on('roomUsers', ({room, users}) => {
   outputRoomName(room);
   outputUsers(users);
+});
+
+//Get room historical messages
+socket.on('roomMessageHistory',({room, messages}) => {
+
+  messages.forEach(msg => {
+    outputMessage(msg);
+  });
+
 });
 
 
@@ -25,6 +35,15 @@ socket.on('message', message => {
   outputMessage(message);
   chatMessages.scrollTop = chatMessages.scrollHeight;
   
+});
+
+//leaving the chat room
+leaveButton.addEventListener('click', e => {
+  const leaveRoom = confirm('Are you sure you want to leave the chatroom?');
+  if (leaveRoom) {
+    window.location = '../index.html';
+  } else {
+  }
 });
 
 //message input handling`
@@ -52,7 +71,7 @@ function outputMessage(message) {
   div.classList.add('message');
   const p = document.createElement('p');
   p.classList.add('meta');
-  p.innerText = message.username;
+  p.innerText = message.username + ' ';
   p.innerHTML += `<span>${message.time}</span>`;
   div.appendChild(p);
   const para = document.createElement('p');
