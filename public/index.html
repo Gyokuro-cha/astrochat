@@ -16,7 +16,7 @@
 	<body>
 		<div class="join-container">
 			<header class="join-header">
-				<h1><i class="fas fa-smile"></i> AstroChat</h1>
+				<h1><i class="fas fa-star-and-crescent"></i> AstroChat</h1>
 			</header>
 			<main class="join-main">
 				<form action="chat.html">
@@ -33,10 +33,26 @@
 					<div class="form-control">
 						<label for="room">Room</label>
 						<select name="room" id="room">
-							<option value="Air">Air</option>
-							<option value="Earth">Earth</option>
-							<option value="Fire">Fire</option>
-							<option value="Water">Water</option>
+							<optgroup label="Elemental">
+								<option value="Air">Air</option>
+								<option value="Earth">Earth</option>
+								<option value="Fire">Fire</option>
+								<option value="Water">Water</option>
+							<optgroup>
+							<optgroup label="Signs">
+								<option value="Aries">Aries</option>
+								<option value="Taurus">Taurus</option>
+								<option value="Gemini">Gemini</option>
+								<option value="Leo">Leo</option>
+								<option value="Virgo">Virgo</option>
+								<option value="Libra">Libra</option>
+								<option value="Scorpio">Scorpio</option>
+								<option value="Sagittarius">Sagittarius</option>
+								<option value="Capricorn">Capricorn</option>
+								<option value="Aquarius">Aquarius</option>
+								<option value="Pisces">Pisces</option>
+							<optgroup>
+
 						</select>
 					</div>
 					<button type="submit" class="btn">Join Chat</button>

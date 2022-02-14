@@ -43,8 +43,6 @@ io.on('connection', socket => {
     //Get chat history for the room user
     let roomMessages = await messageService.getMessagesForRoom(user.room);
 
-    console.log(`roomMessages ${roomMessages}`);
-
     io.to(user.room).emit('roomMessageHistory', {
       room: user.room,
       messages: roomMessages
