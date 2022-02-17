@@ -182,6 +182,19 @@ a {
 	width: 100%;
 }
 
+footer { 
+    width: 100%;
+    text-align: center;
+    min-height: 10px;
+	color: var(--text-color);
+    padding: 10px 0px 10px 0px;
+}
+
+footer p a{
+	color: white;
+}
+
+
 @media (max-width: 700px) {
 	.chat-main {
 		display: block;
